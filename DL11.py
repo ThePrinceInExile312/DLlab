@@ -53,3 +53,14 @@ params = init_multihead_params(embed_size, heads)
 x = torch.rand(2, 10, embed_size)  # (batch, seq_len, embed_size)
 output = multihead_attention(x, x, x, mask=None, params=params)
 print(output.shape)
+
+
+import torch 
+import torch.nn as nn
+
+x = torch.rand(2, 10, 128)  
+mha = nn.MultiheadAttention(128, 8,True)
+out, _ = mha(x, x, x)  
+print(out.shape)
+
+
